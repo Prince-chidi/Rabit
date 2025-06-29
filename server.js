@@ -79,7 +79,7 @@ app.post("/scrape", async (req, res) => {
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
     );
-    await page.setDefaultNavigationTimeout(6000000000);
+    await page.setDefaultNavigationTimeout(0);
 
     const results = [];
     let pageIndex = 1;
@@ -98,7 +98,7 @@ app.post("/scrape", async (req, res) => {
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
           "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
       );
-      await page.setDefaultNavigationTimeout(60000);
+      await page.setDefaultNavigationTimeout(0);
 
       const listUrl = `https://www.${portal}sportal.com/search/${portal}/${encodeURIComponent(
         country.toLowerCase()
@@ -155,7 +155,7 @@ app.post("/scrape", async (req, res) => {
         if (needDetail) {
           const detailPage = await browser.newPage();
           await detailPage.setUserAgent(page._userAgent);
-          await detailPage.setDefaultNavigationTimeout(60000);
+          await detailPage.setDefaultNavigationTimeout(0);
           log("Loading program-detail page:", card.href);
           sendEvent("progress", {
             message: `Loading program-detail page: ${card.href}`,
