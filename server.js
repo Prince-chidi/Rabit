@@ -15,6 +15,10 @@ puppeteerExtra.use(StealthPlugin());
 // Utility logger
 const log = (...args) => console.log(new Date().toISOString(), ...args);
 
+app.get("/health", (req, res) => {
+  res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
 app.post("/scrape", async (req, res) => {
   res.set({
     "Content-Type": "text/event-stream",
