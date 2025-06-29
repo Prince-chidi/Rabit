@@ -1,6 +1,6 @@
 # Dockerfile
 
-# 1) Base image with Node 18+
+# 1) Base image with Node 22+
 FROM node:22
 
 # 2) Install Chrome for Puppeteer
