@@ -1,7 +1,7 @@
 # Dockerfile
 
 # 1) Base image with Node 18+
-FROM node:18-slim
+FROM node:22
 
 # 2) Install Chrome for Puppeteer
 RUN apt-get update \
